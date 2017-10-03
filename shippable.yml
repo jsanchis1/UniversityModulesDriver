@@ -1,4 +1,8 @@
 language: java
+
+jdk:
+  - oraclejdk8
+
 build:
   ci:
-    -mvn compile
+   - mvn install -DskipTests=true
