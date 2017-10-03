@@ -4,5 +4,10 @@ jdk:
   - oraclejdk8
 
 build:
+  cache: true
+  cache_dir_list:
+    - $SHIPPABLE_BUILD_DIR/node_modules
   ci:
-   - mvn install -DskipTests=true
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - shippable_retry mvn install
