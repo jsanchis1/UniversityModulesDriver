@@ -8,8 +8,7 @@ before_script:
   - mkdir -p shippable/codecoverage
   
 script: 
-  - mvn install
-  - mvn test
+  - mvn clean cobertura:cobertura
    
 notifications:
     email:
