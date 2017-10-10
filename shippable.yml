@@ -5,6 +5,7 @@ jdk:
 
 build:
     ci:
+        - mvn clean install 
         #installation of external dependencies
         - shippable_retry mvn install -DskipTests=true
         
