@@ -6,11 +6,8 @@ jdk:
 before_install:
    - rm -rf ~/.m2
    - mkdir -p ~/.m2
-   
-after_success:
    - mvn clean -U
-   - mvn install
-
+   
 notifications:
     email:
         recipients:
