@@ -1,20 +1,16 @@
 language: java
 
 jdk:
-  - oraclejdk8
+    - openjdk7
+    - oraclejdk7
+    - openjdk6
+    - oraclejdk8
 
-install:
-    - mvn clean install 
-    - mvn compile assembly:single
-
-build:
-    ci:
-        #installation of external dependencies
-        - shippable_retry mvn install -DskipTests=true
-        
-        #Create folders for test and code coverage
-        - mkdir -p shippable/testresults
-        - mkdir -p shippable/codecoverage
-
-        #Run test and code coverage and output results to the right folder
-        - mvn clean cobertura:cobertura
+after_success:
+    - mvn clean cobertura:cobertura
+    - mvn test
+    
+notifications:
+    email:
+        recipients:
+            - j.sanchisarderius1@nuigalway.ie
