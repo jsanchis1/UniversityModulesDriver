@@ -7,9 +7,12 @@ before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
   
-script: 
-  - mvn clean cobertura:cobertura
-   
+build:
+  advancedReporting: true
+  ci:
+    - mvn install  
+    - cp -r target shippable/codecoverage
+    
 notifications:
     email:
         recipients:
