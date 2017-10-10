@@ -4,8 +4,8 @@ jdk:
   - oraclejdk8
 
 after_success:
-   - mvn -U clean install
-   - mvn test
+   - mvn clean
+   - mvn install
 
 notifications:
     email:
