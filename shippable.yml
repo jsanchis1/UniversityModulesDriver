@@ -3,6 +3,10 @@ language: java
 jdk:
   - oraclejdk8
   
+before_script:
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+  
 script: mvn test
    
 notifications:
